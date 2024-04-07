@@ -1,9 +1,14 @@
+import os
 import azure.cognitiveservices.speech as speechsdk 
 from dotenv import load_dotenv, dotenv_values 
 
 class TTS:
     def __init__(self):
-        self.speech_config = speechsdk.SpeechConfig(subscription="", region="")
+        load_dotenv()
+        self.speech_config = speechsdk.SpeechConfig(
+            subscription=os.getenv("AZURE_SPEECH_SERVICE_KEY"), 
+            region=os.getenv("AZURE_SPEECH_SERVICE_REGION")
+        )
         self.audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
         self.voice_name='en-US-AshleyNeural'
 
