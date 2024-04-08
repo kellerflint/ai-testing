@@ -1,6 +1,7 @@
 import os
+import datetime
 import azure.cognitiveservices.speech as speechsdk 
-from dotenv import load_dotenv, dotenv_values 
+from dotenv import load_dotenv 
 
 class TTS:
     def __init__(self):
@@ -26,5 +27,5 @@ class TTS:
         """
 
         speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=self.speech_config, audio_config=self.audio_config)
-
+        
         speech_synthesis_result = speech_synthesizer.speak_ssml_async(ssml_string).get()

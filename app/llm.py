@@ -33,5 +33,5 @@ class LLM:
         )
 
         text = json.loads(response.get('body').read())['outputs'][0]['text']
-        print("Response from LLM:", text)
         return text
+    
