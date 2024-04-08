@@ -5,21 +5,21 @@ import webrtcvad
 import wave
 from dotenv import load_dotenv
 
-from llm import LLM
+from llm import LLM, BedrockLLM, GPTLLM
 from tts import TTS
 from stt import STT
 
 load_dotenv()
 
 stt_engine = STT()
-llm_model = LLM()
+llm_model: LLM = GPTLLM()
 tts_engine = TTS()
 
 CHUNK_SIZE = 480
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
-SILENCE_DURATION = 1  # Pause duration in seconds
+SILENCE_DURATION = 1
 
 def record_audio(p, stream, vad):
     print("Waiting for speech...")

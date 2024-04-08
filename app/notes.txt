@@ -1,0 +1,35 @@
+# Settings for Neuro's voice
+
+ssml_string = f"""
+    <speak xmlns="http://www.w3.org/2001/10/synthesis" 
+        xmlns:mstts="http://www.w3.org/2001/mstts" 
+        xmlns:emo="http://www.w3.org/2009/10/emotionml" 
+        version="1.0" 
+        xml:lang="en-US">
+        <voice name="en-US-AshleyNeural">
+            <prosody pitch="+25.00%">{text}</prosody>
+        </voice>
+    </speak>
+"""
+
+# Settings for the sara voice
+
+ssml_string = f"""
+    <speak xmlns="http://www.w3.org/2001/10/synthesis" 
+        xmlns:mstts="http://www.w3.org/2001/mstts" 
+        xmlns:emo="http://www.w3.org/2009/10/emotionml" 
+        version="1.0" 
+        xml:lang="en-US">
+        <voice name="en-US-SaraNeural">
+            <prosody rate="+10.00%" pitch="+20.00%">{text}</prosody>
+        </voice>
+    </speak>
+"""
+
+
+Next steps:
+- I need the model to be better at varying its responses, especially the response length. It gets stuck doing the same kinds of responses very quickly, both in terms of it's approach to the conversation and in terms of the length of responses and their structure.
+- More personality work in general. This isn't bad necessarily but you should come up with an actual objective
+- RAG and long term memory
+- I need to make it so that I can start responding to it the second it finishes talking.
+- The really fancy feature actually would be to just have it record constantly but only do the thing where it listens for sending the next statement / request after it's done

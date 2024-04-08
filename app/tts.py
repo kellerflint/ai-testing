@@ -20,8 +20,8 @@ class TTS:
                 xmlns:emo="http://www.w3.org/2009/10/emotionml" 
                 version="1.0" 
                 xml:lang="en-US">
-                <voice name="en-US-SaraNeural">
-                    <prosody rate="+10.00%" pitch="+20.00%">{text}</prosody>
+                <voice name="en-US-AshleyNeural">
+                    <prosody pitch="+25.00%">{text}</prosody>
                 </voice>
             </speak>
         """
