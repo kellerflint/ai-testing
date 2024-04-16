@@ -15,6 +15,8 @@ stt_engine = STT()
 llm_model: LLM = GPTLLM()
 tts_engine = TTS()
 
+AUDIO_DEVICE_INDEX = 2
+
 CHUNK_SIZE = 480
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
@@ -72,7 +74,7 @@ def main():
     vad = webrtcvad.Vad()
     vad.set_mode(3)  # Set VAD aggressiveness (0-3)
 
-    stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK_SIZE, input_device_index=2)
+    stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK_SIZE, input_device_index=AUDIO_DEVICE_INDEX)
 
     try:
         while True:

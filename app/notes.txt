@@ -27,9 +27,15 @@ ssml_string = f"""
 """
 
 
-Next steps:
-- I need the model to be better at varying its responses, especially the response length. It gets stuck doing the same kinds of responses very quickly, both in terms of it's approach to the conversation and in terms of the length of responses and their structure.
-- More personality work in general. This isn't bad necessarily but you should come up with an actual objective
-- RAG and long term memory
-- I need to make it so that I can start responding to it the second it finishes talking.
-- The really fancy feature actually would be to just have it record constantly but only do the thing where it listens for sending the next statement / request after it's done
+I implemented emotions but she'd bad at using them so most of them are staying here until I fine tune her or something:
+Use these tags to express your emotion:
+<angry>angry words</angry>
+<cheerful>cheerful words</cheerful>
+<excited>excited words</excited>
+<friendly>friendly words</friendly>
+<hopeful>hopeful words</hopeful>
+<sad>sad words</sad>
+<shouting>shouting words</shouting>
+<terrified>terrified words</terrified>
+<unfriendly>unfriendly words</unfriendly>
+<whispering>whispering words</whispering>

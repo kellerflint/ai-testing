@@ -56,15 +56,23 @@ class GPTLLM(LLM):
         request_messages = [
             {"role": "system", "content": self.base_prompt_pre + "" + self.base_prompt_post}
         ]
-        request_messages.extend(self.messages[-10:])
+        request_messages.extend(self.messages[-20:])
         request_messages.append({"role": "user", "content": prompt})
         print('request_messages', request_messages)
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
-            messages=request_messages
+            messages=request_messages,
+            temperature=1,
+            top_p=1
         )
 
         generated_response = response.choices[0].message.content.strip()
+
+        # really trash code
+        generated_response = generated_response.replace("ah,", "")
+        generated_response = generated_response.replace("Ah,", "")
+        generated_response = generated_response.replace("ah ", "")
+        generated_response = generated_response.replace("Ah ", "")
 
         self.messages.append({"role": "user", "content": prompt})
         self.messages.append({"role": "assistant", "content": generated_response})
