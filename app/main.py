@@ -5,14 +5,14 @@ import webrtcvad
 import wave
 from dotenv import load_dotenv
 
-from llm import LLM, BedrockLLM, GPTLLM
+from llm import GroqLLM
 from tts import TTS
 from stt import STT
 
 load_dotenv()
 
 stt_engine = STT()
-llm_model: LLM = GPTLLM()
+llm_model = GroqLLM()
 tts_engine = TTS()
 
 AUDIO_DEVICE_INDEX = 2
